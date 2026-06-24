@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuxin Zhong | PhD Researcher in Applied Linguistics & EdTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Variables ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0d2347;
+      --navy-mid:   #163370;
+      --navy-light: #1e4080;
+      --navy-pale:  #e8edf5;
+      --gold:       #c9a040;
+      --gold-light: #e8c96a;
+      --white:      #ffffff;
+      --text:       #1a2035;
+      --muted:      #5a6680;
+      --border:     #dce3ef;
+      --shadow:     0 4px 24px rgba(13,35,71,.10);
+      --shadow-lg:  0 12px 48px rgba(13,35,71,.18);
+      --radius:     12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #f5f7fb;
+      line-height: 1.7;
+    }
+
+    /* ── Typography ──────────────────────────────────────────── */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+    a { color: var(--navy-light); text-decoration: none; }
+    a:hover { color: var(--gold); }
+
+    /* ── Nav ─────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%;
+      height: 64px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.25);
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .nav-brand span { color: var(--gold-light); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.80);
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .4px;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── Hero ────────────────────────────────────────────────── */
+    #hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a4a8a 100%);
+      padding: 130px 6% 90px;
+      display: flex; align-items: center; gap: 80px;
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 0 8px rgba(201,160,64,.18), var(--shadow-lg);
+      overflow: hidden;
+      background: var(--navy-light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-light);
+      font-size: 4rem;
+      font-family: 'Playfair Display', serif;
+      /* Replace the line below with: background-image: url('your-photo.jpg'); background-size: cover; */
+      font-weight: 700;
+    }
+
+    .hero-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      /* CSS filters to make AI photo look more natural */
+      filter: contrast(1.05) saturate(0.90) brightness(1.02);
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: .5rem;
+    }
+
+    .hero-text h1 span { color: var(--gold-light); }
+
+    .hero-subtitle {
+      color: rgba(255,255,255,.82);
+      font-size: 1.05rem;
+      margin-bottom: .4rem;
+    }
+
+    .hero-inst {
+      color: var(--gold-light);
+      font-size: .95rem;
+      font-weight: 500;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: .5rem 1.2rem;
+      border-radius: 6px;
+      font-size: .85rem;
+      font-weight: 500;
+      transition: all .2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-gold:hover { background: var(--gold-light); color: var(--navy); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,.50);
+      color: var(--white);
+    }
+    .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── Section shells ──────────────────────────────────────── */
+    section { padding: 80px 6%; }
+    section:nth-child(even) { background: var(--white); }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: .4rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 2.5rem;
+      padding-bottom: .8rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .max-w { max-width: 1000px; margin: 0 auto; }
+
+    /* ── About ───────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .about-bio { font-size: 1.02rem; color: var(--text); }
+    .about-bio p { margin-bottom: 1rem; }
+
+    .interest-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.2rem; }
+    .tag {
+      background: var(--navy-pale);
+      color: var(--navy);
+      padding: .35rem .9rem;
+      border-radius: 20px;
+      font-size: .82rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+    }
+
+    .info-box {
+      background: var(--navy-pale);
+      border-left: 4px solid var(--navy-light);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 1.6rem;
+      font-size: .92rem;
+    }
+
+    .info-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: .8rem;
+      color: var(--text);
+    }
+    .info-row:last-child { margin-bottom: 0; }
+    .info-icon { color: var(--navy-light); flex-shrink: 0; margin-top: 2px; }
+
+    /* ── Education timeline ───────────────────────────────────── */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 8px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--navy-light), var(--border));
+    }
+
+    .tl-item { position: relative; margin-bottom: 2.2rem; }
+    .tl-item::before {
+      content: '';
+      position: absolute; left: -24px; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--navy-light);
+    }
+
+    .tl-degree {
+      font-weight: 600;
+      font-size: 1.02rem;
+      color: var(--navy);
+    }
+
+    .tl-school {
+      color: var(--navy-light);
+      font-size: .93rem;
+      margin: .1rem 0;
+    }
+
+    .tl-detail {
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .tl-badge {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      font-size: .73rem;
+      font-weight: 600;
+      padding: .2rem .7rem;
+      border-radius: 4px;
+      margin-top: .5rem;
+      letter-spacing: .3px;
+    }
+
+    /* ── Publication cards ───────────────────────────────────── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .pub-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      border-left: 4px solid var(--navy-light);
+      box-shadow: var(--shadow);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .pub-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+
+    .pub-year {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--navy-light);
+      padding: .15rem .55rem;
+      border-radius: 4px;
+      margin-bottom: .6rem;
+    }
+
+    .pub-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: .3rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .pub-authors { color: var(--muted); font-size: .88rem; margin-bottom: .4rem; }
+    .pub-journal { color: var(--navy-light); font-size: .87rem; font-style: italic; }
+    .pub-doi { font-size: .82rem; margin-top: .5rem; }
+
+    /* ── Presentations ───────────────────────────────────────── */
+    .pres-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .pres-card {
+      background: var(--navy-pale);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      border: 1px solid var(--border);
+      transition: all .2s;
+    }
+    .pres-card:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .pres-card:hover .pres-conf { color: var(--gold-light); }
+    .pres-card:hover .pres-title { color: var(--white); }
+
+    .pres-title { font-size: .9rem; font-weight: 600; color: var(--navy); margin-bottom: .4rem; }
+    .pres-conf { font-size: .8rem; color: var(--muted); }
+
+    /* ── Research experience ─────────────────────────────────── */
+    .exp-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.2rem 1.6rem;
+      align-items: start;
+    }
+
+    .exp-icon {
+      width: 46px; height: 46px;
+      border-radius: 10px;
+      background: var(--navy-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .exp-title { font-weight: 600; color: var(--navy); font-size: .98rem; }
+    .exp-pi { color: var(--muted); font-size: .87rem; margin: .2rem 0; }
+    .exp-date { color: var(--gold); font-size: .82rem; font-weight: 600; }
+
+    /* ── Teaching ────────────────────────────────────────────── */
+    .teach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+
+    .teach-card {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .teach-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+    .teach-title { font-weight: 600; font-size: .97rem; margin-bottom: .3rem; }
+    .teach-role { color: var(--gold-light); font-size: .85rem; margin-bottom: .4rem; }
+    .teach-detail { color: rgba(255,255,255,.70); font-size: .82rem; }
+
+    /* ── Projects ────────────────────────────────────────────── */
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+
+    .project-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: box-shadow .25s, transform .25s;
+    }
+    .project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+    .project-hero {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      padding: 2rem 1.6rem 1.4rem;
+      color: var(--white);
+    }
+
+    .project-featured-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .2rem .65rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: .8rem;
+    }
+
+    .project-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+
+    .project-tagline { color: rgba(255,255,255,.80); font-size: .9rem; }
+
+    .project-body {
+      background: var(--white);
+      padding: 1.4rem 1.6rem;
+    }
+
+    .project-desc { font-size: .92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.65; }
+
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 1rem; }
+    .tech-tag {
+      background: var(--navy-pale);
+      color: var(--navy);
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .25rem .65rem;
+      border-radius: 4px;
+    }
+
+    .project-card-placeholder {
+      background: #f0f3f8;
+      border-radius: var(--radius);
+      border: 2px dashed var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--muted);
+    }
+    .project-card-placeholder .ph-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: .5; }
+
+    /* ── Societies + Certs ───────────────────────────────────── */
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge-pill {
+      background: var(--navy);
+      color: var(--white);
+      font-size: .82rem;
+      font-weight: 500;
+      padding: .4rem 1rem;
+      border-radius: 20px;
+    }
+
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+
+    .cert-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .cert-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: var(--navy-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .cert-name { font-weight: 600; font-size: .88rem; color: var(--navy); }
+    .cert-by { font-size: .78rem; color: var(--muted); }
+
+    /* ── Fellowship ─────────────────────────────────────────── */
+    .fellowship-bar {
+      background: linear-gradient(135deg, var(--navy), #1d3d7a);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 1.8rem 2.2rem;
+      display: flex; align-items: center; gap: 2rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2.5rem;
+    }
+    .fellowship-icon { font-size: 2.5rem; }
+    .fellowship-amount { font-size: 2rem; font-family: 'Playfair Display', serif; color: var(--gold-light); }
+    .fellowship-label { color: rgba(255,255,255,.75); font-size: .88rem; }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.65);
+      padding: 3rem 6% 2rem;
+      text-align: center;
+    }
+
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: .4rem;
+    }
+
+    .footer-contact {
+      display: flex; justify-content: center; gap: 2rem;
+      margin: 1.2rem 0;
+      flex-wrap: wrap;
+      font-size: .9rem;
+    }
+
+    .footer-contact a { color: var(--gold-light); }
+    .footer-contact a:hover { color: var(--white); }
+
+    .footer-copy { font-size: .78rem; margin-top: 1.5rem; opacity: .5; }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 760px) {
+      #hero { flex-direction: column; gap: 2rem; padding: 100px 5% 60px; text-align: center; }
+      .hero-links { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-text h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-brand">Yuxin <span>Zhong</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#presentations">Presentations</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-photo">
+    <!--
+      TO ADD YOUR PHOTO:
+      Replace this div content with:
+        <img src="your-photo.jpg" alt="Yuxin Zhong">
+      Or set this div's style to:
+        background-image: url('your-photo.jpg'); background-size: cover;
+    -->
+    YZ
+  </div>
+  <div class="hero-text">
+    <p class="section-label" style="color: var(--gold-light); font-size:.8rem; letter-spacing:2px;">Ph.D. Researcher · Applied Linguistics & Technology</p>
+    <h1>Yuxin <span>Zhong</span></h1>
+    <p class="hero-subtitle">University of South Florida</p>
+    <p class="hero-inst">College of Education · Technology in Education & Second Language Acquisition</p>
+    <div class="hero-links">
+      <a href="mailto:yuxinzhong@usf.edu" class="btn btn-gold">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+        yuxinzhong@usf.edu
+      </a>
+      <a href="#projects" class="btn btn-outline">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        View Projects
+      </a>
+      <a href="#" class="btn btn-outline" onclick="alert('Add your CV PDF link here')">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd"/></svg>
+        Download CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── About ───────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="max-w">
+    <p class="section-label">About</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>I am a Ph.D. student in the College of Education at the <strong>University of South Florida</strong>, concentrating in Technology in Education and Second Language Acquisition (SLA).</p>
+        <p>My research sits at the intersection of <strong>artificial intelligence, language pedagogy, and human-computer interaction</strong>. I am particularly interested in how intelligent systems can provide meaningful, formative feedback to English language learners, especially Chinese EFL learners, in ways that traditional instruction cannot.</p>
+        <p>Before USF, I earned my M.A. in TESOL from <strong>New York University</strong>.</p>
+
+        <p class="section-label" style="margin-top:1.8rem; margin-bottom:.6rem;">Research Interests</p>
+        <div class="interest-tags">
+          <span class="tag">AI in Language Education</span>
+          <span class="tag">Human-AI Interaction</span>
+          <span class="tag">Intelligent Feedback &amp; SLA</span>
+          <span class="tag">Lexical Precision</span>
+          <span class="tag">Technology-Enhanced Learning</span>
+          <span class="tag">Bilingual &amp; Heritage Language Learning</span>
+          <span class="tag">Multimodal Pedagogy</span>
+          <span class="tag">Data-Driven Language Instruction</span>
+          <span class="tag">NLP for Education</span>
+        </div>
+      </div>
+
+      <div>
+        <!-- Fellowship highlight -->
+        <div class="fellowship-bar" style="margin-bottom:1.4rem;">
+          <div class="fellowship-icon">🏆</div>
+          <div>
+            <div class="fellowship-amount">$10,000</div>
+            <div style="font-weight:600; font-size:.95rem; margin:.1rem 0;">University Graduate Fellowship</div>
+            <div class="fellowship-label">USF College of Education · 2024–2025</div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-row">
+            <svg class="info-icon" width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            <div><strong>College of Education</strong><br>University of South Florida<br>4202 E. Fowler Ave., Tampa, FL 33620</div>
+          </div>
+          <div class="info-row">
+            <svg class="info-icon" width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/></svg>
+            <div><strong>Research Associate</strong> · 2026–2028</div>
+          </div>
+          <div class="info-row">
+            <svg class="info-icon" width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+            <div><a href="mailto:yuxinzhong@usf.edu">yuxinzhong@usf.edu</a></div>
+          </div>
+          <div class="info-row">
+            <svg class="info-icon" width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/></svg>
+            <div>Ph.D. in Education (2024–present)<br><span style="color:var(--muted); font-size:.85rem;">Concentration: Technology in Education &amp; SLA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Education ───────────────────────────────────────────────── -->
+<section id="education">
+  <div class="max-w">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-degree">Ph.D. in Education</div>
+        <div class="tl-school">University of South Florida · Tampa, FL</div>
+        <div class="tl-detail">2024 – Present · Concentration: Technology in Education and Second Language Acquisition</div>
+        <span class="tl-badge">🏆 University Graduate Fellowship ($10,000)</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-degree">M.A. in Education (TESOL)</div>
+        <div class="tl-school">New York University · New York, NY</div>
+        <div class="tl-detail">2022 – 2023 · Steinhardt School of Culture, Education, and Human Development</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-degree">B.A. in English (Linguistics &amp; Translation)</div>
+        <div class="tl-school">Northern Arizona University · Flagstaff, AZ &amp; Yangzhou University · China</div>
+        <div class="tl-detail">2018 – 2022 · Dual-degree program</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Publications ────────────────────────────────────────────── -->
+<section id="publications">
+  <div class="max-w">
+    <p class="section-label">Scholarship</p>
+    <h2 class="section-title">Publications</h2>
+    <div class="pub-list">
+
+      <div class="pub-card" style="border-left-color: var(--gold);">
+        <span class="pub-year" style="background: var(--gold); color: var(--navy);">Under Review</span>
+        <div class="pub-title">Lexical Appropriateness and Lexical Diversity in Chinese EFL Learners' Spoken Monologues: A Corpus-Based Investigation of Proficiency Effects and Co-development</div>
+        <div class="pub-authors">Zhong, Y.</div>
+        <div class="pub-journal" style="font-style:normal; color:var(--muted); font-size:.83rem;">Manuscript under review · Operationalizes Lexical Imprecision Rate (LIR) on 600 ICNALE transcripts across CEFR A2–B2; examines co-development of lexical appropriateness and diversity via linear mixed-effects models.</div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-year">2025</span>
+        <div class="pub-title">Enhancing vocabulary acquisition through the AI-driven IXL platform</div>
+        <div class="pub-authors">Lee, J., &amp; Zhong, Y.</div>
+        <div class="pub-journal">CCTE Fall 2025 Research Monograph, 159.</div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-year">2025</span>
+        <div class="pub-title">AI-powered scaffolding: Rethinking English language teaching practices in the digital age</div>
+        <div class="pub-authors">Jalaluddin, J., Alfaqih, A., &amp; Zhong, Y.</div>
+        <div class="pub-journal">GLOBAL: Education, Language and Humanity Journal, 2(2), 53–65.</div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-year">2023</span>
+        <div class="pub-title">Project-based language learning and its implications for English teaching in Chinese universities</div>
+        <div class="pub-authors">Zhong, Y.</div>
+        <div class="pub-journal">Proceedings of the 2nd International Conference on Humanities and Cultural Studies (ICHCS), Stanford University, USA.</div>
+        <div class="pub-doi"><a href="https://doi.org/10.54254/2753-7048/31/20231856" target="_blank">doi.org/10.54254/2753-7048/31/20231856 ↗</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Presentations ───────────────────────────────────────────── -->
+<section id="presentations">
+  <div class="max-w">
+    <p class="section-label">Conferences</p>
+    <h2 class="section-title">Conference Presentations</h2>
+    <div class="pres-grid">
+
+      <div class="pres-card">
+        <div class="pres-title">From digital divide to peace education: Technology access and equity among heritage language learners in the U.S.</div>
+        <div class="pres-conf">CIES 2026 · San Francisco, CA · Mar–Apr 2026</div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-title">Enhancing spoken lexical diversity in EFL learners through AI-integrated task-based instruction</div>
+        <div class="pres-conf">SITE 2026 · Philadelphia, PA · Mar 2026</div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-title">From correction to culture: AI feedback for intercultural writing in EFL</div>
+        <div class="pres-conf">ICC 2026 · University of Arizona, Tucson, AZ · Feb–Mar 2026</div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-title">Technology Resources and Use among Heritage Language Learners and Their Peers</div>
+        <div class="pres-conf">SSTESOL 2025 Annual Conference · University of Tampa, FL · Nov 2025</div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-title">Enhancing Vocabulary Acquisition through the AI-driven IXL Platform <span style="font-weight:400;">(with Lee, J.)</span></div>
+        <div class="pres-conf">CCTE 2025 Fall Virtual Conference · Oct 2025</div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-title">Literature Review Strategies <span style="font-weight:400; font-style:italic;">[Workshop]</span></div>
+        <div class="pres-conf">USF College of Education · TESLA/SLAQ Workshop Series · Sep 2025</div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-title">AI-Powered Dynamic Teaching: Analyzing ChatGPT's Applications in K–12 English Language Instruction <span style="font-weight:400;">(with Guan, P.)</span></div>
+        <div class="pres-conf">CAERDA 2025 International Conference · Denver, CO · Apr 2025</div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-title">Transforming Language Teacher Education: How Digital Literacy Shapes Language Teachers' Growth <span style="font-weight:400;">(with Guan, P.)</span></div>
+        <div class="pres-conf">8th Interdisciplinary Symposium on Qualitative Methodologies · USF · Apr 2025</div>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-title">Technology Resources and Use among Heritage Language Learners and Their Peers</div>
+        <div class="pres-conf">2025 Graduate Student Research Symposium · USF · Mar 2025</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Research Experience ─────────────────────────────────────── -->
+<section id="research">
+  <div class="max-w">
+    <p class="section-label">Lab Work</p>
+    <h2 class="section-title">Research Experience</h2>
+
+    <div class="exp-card">
+      <div class="exp-icon">🧒</div>
+      <div>
+        <div class="exp-title">Pre-K Teacher Language Interactions Project</div>
+        <div class="exp-pi">Supervisor: Dr. Elizabeth Hadley · University of South Florida</div>
+        <div class="exp-date">2026 – Present</div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">🗣️</div>
+      <div>
+        <div class="exp-title">Linguistic Synchrony BIS Project</div>
+        <div class="exp-pi">Supervisor: Dr. Sara Smith · University of South Florida</div>
+        <div class="exp-date">2026 – Present</div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">📊</div>
+      <div>
+        <div class="exp-title">Language Learning Project</div>
+        <div class="exp-pi">Supervisor: Dr. Ye Shen · University of South Florida</div>
+        <div class="exp-date">2024 – 2025</div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">🌍</div>
+      <div>
+        <div class="exp-title">Comparative Perspectives on Schooling</div>
+        <div class="exp-pi">Supervisor: Dr. Hua-Yu Sebastian Cherng · New York University</div>
+        <div class="exp-date">2023</div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">✍️</div>
+      <div>
+        <div class="exp-title">Study on Error Correction in L2 Writing</div>
+        <div class="exp-pi">New York University</div>
+        <div class="exp-date">2023</div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-icon">🤝</div>
+      <div>
+        <div class="exp-title">NYU-PUCMM Cultural in Language Learning Program</div>
+        <div class="exp-pi">Supervisor: Dr. Shondel J. Nero · New York University</div>
+        <div class="exp-date">2023</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Teaching ────────────────────────────────────────────────── -->
+<section id="teaching">
+  <div class="max-w">
+    <p class="section-label">Classroom</p>
+    <h2 class="section-title">Teaching Experience</h2>
+    <div class="teach-grid">
+
+      <div class="teach-card">
+        <div class="teach-role">Teaching Assistant</div>
+        <div class="teach-title">University of South Florida</div>
+        <div class="teach-detail">TSL 4251: Teaching English to Speakers of Other Languages<br>TSL 4080: Second Language Literacy<br>Jul 2025 – Dec 2025</div>
+      </div>
+
+      <div class="teach-card">
+        <div class="teach-role">Lead Instructor</div>
+        <div class="teach-title">Manhattan Mandarin</div>
+        <div class="teach-detail">Managed and designed Mandarin language curriculum and instruction for K–12 students in New York City.<br>2023</div>
+      </div>
+
+      <div class="teach-card">
+        <div class="teach-role">English Teacher (Community Impact)</div>
+        <div class="teach-title">Columbia University Program</div>
+        <div class="teach-detail">Community-based English instruction in partnership with Columbia University.<br>2023</div>
+      </div>
+
+      <div class="teach-card">
+        <div class="teach-role">Volunteer English Tutor</div>
+        <div class="teach-title">Speak English Together (Non-profit)</div>
+        <div class="teach-detail">Provided conversational English tutoring to adult EFL learners.<br>2022 – 2024</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Projects ────────────────────────────────────────────────── -->
+<section id="projects">
+  <div class="max-w">
+    <p class="section-label">Tools &amp; Tech</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+
+      <!-- SpeakPrecise — featured -->
+      <div class="project-card">
+        <div class="project-hero">
+          <span class="project-featured-badge">⭐ Featured Project</span>
+          <div class="project-name">SpeakPrecise</div>
+          <div class="project-tagline">AI-Powered Speaking Practice for Chinese EFL Learners</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            SpeakPrecise is a web application I designed and built to help Chinese EFL learners improve their <strong>lexical precision</strong> in spoken English. It uses a rule-based NLP engine grounded in my published research to compute a real-time <em>Lexical Imprecision Rate (LIR)</em> score after each spoken or typed turn.
+          </p>
+          <p class="project-desc">
+            The app transcribes learner speech, identifies vague or over-general vocabulary, highlights problematic words, and suggests precise alternatives — all running entirely offline with no API dependency.
+          </p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python · Flask</span>
+            <span class="tech-tag">spaCy NLP</span>
+            <span class="tech-tag">faster-whisper STT</span>
+            <span class="tech-tag">LIR Scoring</span>
+            <span class="tech-tag">Bootstrap 5</span>
+            <span class="tech-tag">SQLite</span>
+          </div>
+          <a href="http://localhost:5080" target="_blank" class="btn btn-gold" style="font-size:.85rem;">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+            Launch App
+          </a>
+        </div>
+      </div>
+
+      <!-- Placeholder for future project -->
+      <div class="project-card-placeholder">
+        <div class="ph-icon">🚀</div>
+        <div style="font-weight:600; color:var(--navy); margin-bottom:.4rem;">More Projects Coming Soon</div>
+        <div style="font-size:.85rem;">Currently developing research tools for linguistic synchrony and pre-K teacher language interaction analysis.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Memberships + Certs ─────────────────────────────────────── -->
+<section id="affiliations">
+  <div class="max-w">
+    <p class="section-label">Community</p>
+    <h2 class="section-title">Professional Affiliations &amp; Certifications</h2>
+
+    <p style="font-weight:600; color:var(--navy); margin-bottom:1rem;">Professional Societies</p>
+    <div class="badges" style="margin-bottom:2.5rem;">
+      <span class="badge-pill">WiCS — Women in Computer Science</span>
+      <span class="badge-pill">AERA — American Educational Research Association</span>
+      <span class="badge-pill">CIES — Comparative and International Education Society</span>
+      <span class="badge-pill">CAERDA</span>
+      <span class="badge-pill">SSTESOL — Sunshine State TESOL</span>
+      <span class="badge-pill">CCTE — Conference on College Teaching and Education</span>
+    </div>
+
+    <p style="font-weight:600; color:var(--navy); margin-bottom:1rem;">Certificates &amp; Technical Training</p>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div>
+          <div class="cert-name">Google Data Analytics</div>
+          <div class="cert-by">Google · Coursera</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🐍</div>
+        <div>
+          <div class="cert-name">Python Data Structures</div>
+          <div class="cert-by">University of Michigan · Coursera</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div>
+          <div class="cert-name">Python for Data Science, AI &amp; Development</div>
+          <div class="cert-by">IBM · Coursera</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact / Footer ───────────────────────────────────────── -->
+<footer id="contact">
+  <div class="footer-name">Yuxin Zhong</div>
+  <div style="color:rgba(255,255,255,.55); font-size:.88rem;">Ph.D. Student · University of South Florida</div>
+  <div class="footer-contact">
+    <a href="mailto:yuxinzhong@usf.edu">✉ yuxinzhong@usf.edu</a>
+    <span style="color:rgba(255,255,255,.3);">|</span>
+    <span>College of Education, 4202 E. Fowler Ave., Tampa, FL 33620</span>
+  </div>
+  <div class="footer-copy">© 2026 Yuxin Zhong · Built with purpose</div>
+</footer>
+
+</body>
+</html>
